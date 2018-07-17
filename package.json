@@ -1,0 +1,26 @@
+{
+  "name": "ess-resource",
+  "version": "0.0.1",
+  "description": "Helpers fro working with ess-storage",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/essentiaone/ess-resource.git"
+  },
+  "keywords": [
+    "essentia",
+    "ess",
+    "resources",
+    "storage"
+  ],
+  "author": {
+    "name": "Roman Loboda",
+    "email": "roman.l@essentia.one"
+  },
+  "dependencies": {
+    "jshashes": "^1.0.7",
+    "lodash.merge": "^4.6.1"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/essentiaone/ess-resource"
+}
