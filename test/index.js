@@ -1,6 +1,7 @@
 const Resource = require('../index')
 
-const testingData = {
+// input parameters to testing
+const inputParameters = {
   pathId: '5ab-s2e-fm4-s6g_9tmgc',
   key: 'mySecretKey',
   serverPath: 'https://myserver.dev/static',
@@ -11,10 +12,19 @@ const testingData = {
   ext: 'jpg'
 }
 
+// expected parameters when finish test
+const expectedParameters = {
+  isVerified: true,
+  resourceType: 'image',
+  action: inputParameters.action,
+  imageWidth: inputParameters.imageWidth,
+  imageHeight: inputParameters.imageHeight
+}
+
 // Creating resource instance
 const resource = new Resource({
-  key: testingData.key,
-  iterations: testingData.iterations
+  key: inputParameters.key,
+  iterations: inputParameters.iterations
 })
 
 // Creating image resource
@@ -23,14 +33,14 @@ const image = resource.image()
 // Filling image instance with testing data
 const myImage = image
   // set image path id (required)
-  .setPathId(testingData.pathId)
+  .setPathId(inputParameters.pathId)
   // set image extension (required)
-  .setExt(testingData.ext)
+  .setExt(inputParameters.ext)
   // set server path (require for .getUrl() method)
-  .setServerPath(testingData.serverPath)
+  .setServerPath(inputParameters.serverPath)
   // set image size (for crop/resize options)
-  .setWidth(testingData.imageWidth)
-  .setHeight(testingData.imageHeight)
+  .setWidth(inputParameters.imageWidth)
+  .setHeight(inputParameters.imageHeight)
   // crop/resize
   .resize()
 
@@ -49,13 +59,32 @@ const isVerified = image.verifyPathData(pathData)
 // Getting image options
 const imageOptions = image.parseOptionsPath(pathData.optionsPath)
 
-const isTestPassed = (
-  isVerified &&
-  resourceType === 'image' &&
-  imageOptions.action === testingData.action &&
-  imageOptions.width === testingData.imageWidth &&
-  imageOptions.height === testingData.imageHeight
-)
+let isTestPassed = true
+
+if (isVerified !== expectedParameters.isVerified) {
+  isTestPassed = false
+  console.error('Verification failed')
+}
+
+if (resourceType !== expectedParameters.resourceType) {
+  isTestPassed = false
+  console.error('Resource type is invalid')
+}
+
+if (imageOptions.width !== expectedParameters.imageWidth) {
+  isTestPassed = false
+  console.error('Width does not match')
+}
+
+if (imageOptions.height !== expectedParameters.imageHeight) {
+  isTestPassed = false
+  console.error('Height does not match')
+}
+
+if (imageOptions.action !== expectedParameters.action) {
+  isTestPassed = false
+  console.error('Action does not match')
+}
 
 if (isTestPassed) {
   console.log('Test passed')

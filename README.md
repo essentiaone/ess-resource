@@ -19,9 +19,9 @@ const Resource = require('ess-resource')
 
 // new Resource instance
 const resource = new Resource({
-  // secret key to hashing data
+  // secret key to hashing
   key: 'yourSecretKey'
-  // quantity of iterations while hashing
+  // count of hashing operations
   iterations: 3
 })
 
