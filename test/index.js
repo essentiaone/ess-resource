@@ -63,27 +63,27 @@ let isTestPassed = true
 
 if (isVerified !== expectedParameters.isVerified) {
   isTestPassed = false
-  console.error('Verification failed')
+  console.error('Verification failed, expected: ', expectedParameters.isVerified, ' got: ', isVerified)
 }
 
 if (resourceType !== expectedParameters.resourceType) {
   isTestPassed = false
-  console.error('Resource type is invalid')
+  console.error('Resource type is invalid, expected: ', expectedParameters.resourceType, ' got: ', resourceType)
 }
 
 if (imageOptions.width !== expectedParameters.imageWidth) {
   isTestPassed = false
-  console.error('Width does not match')
+  console.error('Width does not match, expected: ', expectedParameters.imageWidth, ' got: ', imageOptions.width)
 }
 
 if (imageOptions.height !== expectedParameters.imageHeight) {
   isTestPassed = false
-  console.error('Height does not match')
+  console.error('Height does not match, expected: ', expectedParameters.imageHeight, ' got: ', imageOptions.height)
 }
 
 if (imageOptions.action !== expectedParameters.action) {
   isTestPassed = false
-  console.error('Action does not match')
+  console.error('Action does not match, expected: ', expectedParameters.action, ' got: ', imageOptions.action)
 }
 
 if (isTestPassed) {
