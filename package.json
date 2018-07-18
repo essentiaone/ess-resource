@@ -1,7 +1,7 @@
 {
   "name": "ess-resource",
   "version": "0.0.1",
-  "description": "Helpers fro working with ess-storage",
+  "description": "Helpers to working with ess-storage",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "jshashes": "^1.0.7",
-    "lodash.merge": "^4.6.1"
+    "lodash.merge": "^4.6.1",
+    "standard": "^11.0.1"
   },
   "license": "MIT",
   "homepage": "https://github.com/essentiaone/ess-resource"
