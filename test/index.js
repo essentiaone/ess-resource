@@ -21,42 +21,44 @@ const resource = new Resource({
 const image = resource.image()
 
 // Filling image instance with testing data
-const myImage = image.
+const myImage = image
   // set image path id (required)
-  setPathId(testingData.pathId).
+  .setPathId(testingData.pathId)
   // set image extension (required)
-  setExt(testingData.ext).
+  .setExt(testingData.ext)
   // set server path (require for .getUrl() method)
-  setServerPath(testingData.serverPath).
+  .setServerPath(testingData.serverPath)
   // set image size (for crop/resize options)
-  setWidth(testingData.imageWidth).
-  setHeight(testingData.imageHeight).
+  .setWidth(testingData.imageWidth)
+  .setHeight(testingData.imageHeight)
   // crop/resize
-  resize()
+  .resize()
 
 // Getting image path
 const myImagePath = myImage.getPath()
-console.log('path: ' + myImagePath)
-
-// Getting image url
-const myImageUrl = myImage.getUrl()
-console.log('url: ' + myImageUrl)
 
 // Parsing image path
 const pathData = resource.resolve(myImagePath)
 
 // Getting resource type
 const resourceType = pathData.resourceType
-console.log('resource type: ' + resourceType)
 
 // Verifying path data
 const isVerified = image.verifyPathData(pathData)
-console.log('is valid: ' + isVerified)
 
 // Getting image options
 const imageOptions = image.parseOptionsPath(pathData.optionsPath)
 
-// Compare with tastingData
-console.log('action: ' + (imageOptions.action === testingData.action))
-console.log('width: ' + (imageOptions.width === testingData.imageWidth))
-console.log('height: ' + (imageOptions.height === testingData.imageHeight))
+const isTestPassed = (
+  isVerified &&
+  resourceType === 'image' &&
+  imageOptions.action === testingData.action &&
+  imageOptions.width === testingData.imageWidth &&
+  imageOptions.height === testingData.imageHeight
+)
+
+if (isTestPassed) {
+  console.log('Test passed')
+} else {
+  console.error('Test failed')
+}
