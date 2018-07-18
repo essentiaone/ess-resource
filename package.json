@@ -19,9 +19,11 @@
   },
   "dependencies": {
     "jshashes": "^1.0.7",
-    "lodash.merge": "^4.6.1",
-    "standard": "^11.0.1"
+    "lodash.merge": "^4.6.1"
   },
   "license": "MIT",
-  "homepage": "https://github.com/essentiaone/ess-resource"
+  "homepage": "https://github.com/essentiaone/ess-resource",
+  "devDependencies": {
+    "standard": "^11.0.1"
+  }
 }
