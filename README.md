@@ -21,8 +21,6 @@ const Resource = require('ess-resource-library')
 const resource = new Resource({
   // secret key to hashing
   key: 'yourSecretKey'
-  // count of hashing operations
-  iterations: 3
 })
 
 // create Image instance
@@ -39,7 +37,8 @@ const myImagePath = image.
   // set image size (for crop/resize options)
   setWidth(240).
   setHeight(320).
-  // crop/resize
+  // crop
+  // read about gravity, and other details: https://github.com/rsms/node-imagemagick#cropoptions-callback
   crop('NorthWest').
   // getting path
   getPath()
