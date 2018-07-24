@@ -1,4 +1,4 @@
-ess-resource
+ess-resource-library
 ========
 
 ## Environments
@@ -15,7 +15,7 @@ This library used both on storage side and your server side for building, parsin
 ```javascript
 
 // import library
-const Resource = require('ess-resource')
+const Resource = require('ess-resource-library')
 
 // new Resource instance
 const resource = new Resource({
@@ -40,7 +40,7 @@ const myImagePath = image.
   setWidth(240).
   setHeight(320).
   // crop/resize
-  crop().
+  crop('NorthWest').
   // getting path
   getPath()
 
