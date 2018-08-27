@@ -15,7 +15,7 @@ This library used both on storage side and your server side for building, parsin
 ```javascript
 
 // import library
-const Resource = require('ess-resource-library')
+const Resource = require('ess-resource')
 
 // new Resource instance
 const resource = new Resource({
